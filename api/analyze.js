@@ -1,14 +1,13 @@
-// api/analyze.js
-// Vercel Serverless Function - runs Claude analysis of the consumer case
-// Takes form data + optional document text and returns full legal analysis
+ // api/analyze.js
+// Vercel Serverless Function - Statystyczna Maszyna Restytucji
+// MVP MODE: bez wymogu płatności (włączysz Stripe później)
 
 const Anthropic = require('@anthropic-ai/sdk');
 const crypto = require('crypto');
 
-// The IMENT — 16 blocks trunk. Kept in cache for prompt caching (huge savings).
 const IMENT_SYSTEM = `Jesteś ekspertem prawnym z 20-letnim doświadczeniem w prawie konsumenckim UE i polskim.
 
-Twoja rola: analiza sprawy konsumenta atakowanego przez bank lub firmę pożyczkową na podstawie IMENT — konstrukcji 16 bloków prawnych.
+Twoja rola: analiza sprawy konsumenta atakowanego przez bank lub firmę pożyczkową na podstawie IMENT — konstrukcji 17 bloków prawnych.
 
 FUNDAMENT:
 1. Kredyt/pożyczka konsumencka = spłata w ratach jako natura stosunku (art. 353¹ KC, art. 3 UKK).
@@ -37,21 +36,22 @@ STYL:
 - Zakończ jednoznacznym werdyktem: IDZIEMY albo NIE IDZIEMY, i dlaczego.`;
 
 module.exports = async (req, res) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const { formData, documentsText, customerName, customerNumber, paymentSessionId } = req.body;
+    const { formData, documentsText, customerName, customerNumber } = req.body;
 
-    // Verify payment (in production: check Stripe session)
-    if (!paymentSessionId) {
-      return res.status(402).json({ error: 'Płatność wymagana' });
+    if (!process.env.ANTHROPIC_API_KEY) {
+      return res.status(500).json({ error: 'Brak klucza ANTHROPIC_API_KEY w konfiguracji Vercel' });
     }
 
     const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-    // Build user prompt from form
     const userPrompt = `KLIENT: ${customerName || 'Anonim'}
 NUMER KLIENTA: ${customerNumber}
 
@@ -76,7 +76,7 @@ Struktura odpowiedzi:
 Maksymalna moc argumentów. Jasność. Bez wody.`;
 
     const message = await anthropic.messages.create({
-      model: 'claude-sonnet-4-6',
+      model: 'claude-sonnet-4-5',
       max_tokens: 4000,
       system: [
         { type: 'text', text: IMENT_SYSTEM, cache_control: { type: 'ephemeral' } }
@@ -88,22 +88,18 @@ Maksymalna moc argumentów. Jasność. Bez wody.`;
 
     const analysis = message.content[0].text;
 
-    // Generate hash for the document (proof of authenticity)
     const timestamp = new Date().toISOString();
     const hashInput = `${customerNumber}|${customerName}|${timestamp}|${analysis.substring(0, 200)}`;
     const documentHash = crypto.createHash('sha256').update(hashInput).digest('hex').substring(0, 16).toUpperCase();
 
-    // Build final response with metadata
-    const result = {
+    return res.status(200).json({
       customerNumber,
       customerName,
       timestamp,
       documentHash,
       analysis,
       footer: `\n\n---\nDokument nr: RR-${customerNumber}-${documentHash}\nWygenerowano: ${timestamp}\nKlient: ${customerName}\nHash: ${documentHash}\n\nMateriał chroniony prawem autorskim i stanowi tajemnicę przedsiębiorstwa (art. 11 u.z.n.k.). Nieuprawnione rozpowszechnianie skutkuje odpowiedzialnością odszkodowawczą i karną.`
-    };
-
-    return res.status(200).json(result);
+    });
 
   } catch (err) {
     console.error('Analysis error:', err);

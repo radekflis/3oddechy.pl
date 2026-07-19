@@ -1,0 +1,13 @@
+{
+  "name": "restytucja-rzeczywistosci",
+  "version": "1.0.0",
+  "description": "Statystyczna Maszyna Restytucji dla konsumentów",
+  "engines": {
+    "node": ">=18.x"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "stripe": "^17.0.0",
+    "crypto": "^1.0.1"
+  }
+}

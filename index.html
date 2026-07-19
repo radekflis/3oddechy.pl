@@ -4,22 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3oddechy.pl — dla konsumentów pod presją banków i firm pożyczkowych</title>
-<meta name="description" content="Statystyczna Maszyna Restytucji. Jednoznaczna analiza sprawy w kilka minut. Odszkodowanie liczone dobowo. Pisma od naszego prawnika w 48 godzin.">
+<meta name="description" content="Statystyczna Maszyna Restytucji. Jednoznaczna analiza sprawy. Odszkodowanie liczone dobowo. Pisma od naszego prawnika.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: #ffffff;
-    color: #1a1a1a;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   .container { max-width: 780px; margin: 0 auto; padding: 24px 20px; }
-  header {
-    border-bottom: 1px solid #eaeaea;
-    padding: 20px 0;
-    text-align: center;
-  }
+  header { border-bottom: 1px solid #eaeaea; padding: 20px 0; text-align: center; }
   header h1 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: #0a0a0a; }
   header p.tag { font-size: 13px; color: #666; margin-top: 4px; }
   .hero { padding: 48px 0 32px; text-align: center; border-bottom: 1px solid #f5f5f5; }
@@ -27,12 +17,12 @@
   .hero .hook { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 18px 20px; margin: 0 auto 24px; max-width: 560px; text-align: left; font-size: 15px; color: #222; }
   .hero .hook strong { color: #000; }
   .video-block { max-width: 560px; margin: 0 auto 24px; aspect-ratio: 16/9; background: #f0f0f0; border: 1px dashed #ccc; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #888; text-align: center; padding: 20px; }
-  .btn { display: inline-block; background: #0a0a0a; color: #fff; padding: 14px 28px; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500; border: none; cursor: pointer; transition: background 0.15s; }
+  .btn { display: inline-block; background: #0a0a0a; color: #fff; padding: 14px 28px; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500; border: none; cursor: pointer; }
   .btn:hover { background: #222; }
   .btn:disabled { background: #ccc; cursor: not-allowed; }
   .btn-secondary { background: #fff; color: #0a0a0a; border: 1px solid #0a0a0a; }
   section { padding: 40px 0; border-bottom: 1px solid #f5f5f5; }
-  section h3 { font-size: 18px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.01em; }
+  section h3 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
   section p { margin-bottom: 12px; color: #333; font-size: 15px; }
   .form-group { margin-bottom: 24px; }
   .form-group label.main-label { display: block; font-weight: 600; margin-bottom: 10px; font-size: 15px; color: #0a0a0a; }
@@ -40,9 +30,7 @@
   .checkbox-list label { display: flex; align-items: flex-start; padding: 10px 12px; margin-bottom: 6px; background: #fafafa; border: 1px solid #eee; border-radius: 6px; cursor: pointer; font-size: 14px; }
   .checkbox-list label:hover { background: #f0f0f0; }
   .checkbox-list input { margin-right: 10px; margin-top: 4px; flex-shrink: 0; }
-  input[type="text"], input[type="email"], input[type="date"], input[type="number"], textarea, select {
-    width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; font-family: inherit; background: #fff;
-  }
+  input[type="text"], input[type="email"], input[type="date"], input[type="number"], textarea, select { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; font-family: inherit; background: #fff; }
   textarea { min-height: 80px; resize: vertical; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   @media (max-width: 500px) { .row { grid-template-columns: 1fr; } }
@@ -83,14 +71,16 @@
   .loader { border: 3px solid #f3f3f3; border-top: 3px solid #0a0a0a; border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; }
   @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   .analysis-text { background: #fff; border: 1px solid #eee; border-radius: 6px; padding: 20px; margin-top: 14px; font-size: 14px; line-height: 1.7; white-space: pre-wrap; }
-  .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 80px; color: rgba(0,0,0,0.02); pointer-events: none; z-index: -1; font-weight: 900; }
+  .beta-banner { background: #fff3cd; border: 1px solid #e0c060; padding: 10px 16px; text-align: center; font-size: 13px; color: #5c3d00; }
 </style>
 </head>
 <body>
 
+<div class="beta-banner">🚀 Wersja BETA — analiza za darmo w okresie testowym</div>
+
 <header>
   <div class="container">
-    <h1>3oddechy.pl</h1>
+    <h1>3 ODDECHY</h1>
     <p class="tag">Konsument. Prawda. Prawo Unii.</p>
   </div>
 </header>
@@ -103,7 +93,7 @@
       <p><strong>Poniżenie. Strach. Zburzenie życia. Niesprawiedliwość.</strong> Pozycja przy ziemi — jak za czasów poddaństwa i niewolnictwa. Tak nie musi być. Prawo Unii i Polski stoi po Twojej stronie mocniej, niż myślisz. Ten system pokaże Ci, ile bank lub firma pożyczkowa złamała przepisów w Twojej sprawie — i ile powinna Ci zapłacić.</p>
     </div>
     <div class="video-block">🎬 Miejsce na film wprowadzający<br><small>(60–90 sekund — prawda o Twojej pozycji prawnej)</small></div>
-    <a href="#form" class="btn">Sprawdź swoją sprawę → 50 zł</a>
+    <a href="#form" class="btn">Sprawdź swoją sprawę → za darmo (BETA)</a>
     <p style="font-size:13px; color:#666; margin-top:10px;">Odpowiedź w kilka minut. Jednoznaczna. Oparta na 17 blokach IMENT.</p>
   </div>
 
@@ -111,9 +101,8 @@
     <h3>Jak to działa</h3>
     <p><strong>1.</strong> Wypełniasz formularz zaznaczając klikami — bez pisania.</p>
     <p><strong>2.</strong> Wrzucasz dokumenty (umowa, wypowiedzenie, pisma windykatora, nagrania).</p>
-    <p><strong>3.</strong> Płacisz 50 zł (BLIK, karta, Przelewy24) — zabezpieczone przez Stripe.</p>
-    <p><strong>4.</strong> Statystyczna Maszyna Restytucji analizuje sprawę i wylicza kwotę odszkodowania — dobowo, za każdy dzień bezprawia.</p>
-    <p><strong>5.</strong> Otrzymujesz decyzję IDZIEMY / NIE IDZIEMY. Jeśli idziemy — pismo od prawnika w 48h.</p>
+    <p><strong>3.</strong> Statystyczna Maszyna Restytucji analizuje sprawę i wylicza kwotę odszkodowania — dobowo, za każdy dzień bezprawia.</p>
+    <p><strong>4.</strong> Otrzymujesz decyzję IDZIEMY / NIE IDZIEMY. Jeśli idziemy — pismo od prawnika w 48h.</p>
   </section>
 
   <section id="form">
@@ -123,7 +112,7 @@
     <form id="mainForm">
 
       <div class="form-group">
-        <label class="main-label">0. Twoje dane (potrzebne do pisma i faktury)</label>
+        <label class="main-label">0. Twoje dane (potrzebne do pisma i kontaktu)</label>
         <div class="row">
           <input type="text" name="customerName" id="customerName" placeholder="Imię i nazwisko" required>
           <input type="email" name="customerEmail" id="customerEmail" placeholder="E-mail" required>
@@ -246,8 +235,8 @@
         <br>2. Analiza jest <strong>wyłącznie dla Ciebie</strong>. Nie możesz jej udostępniać, publikować w internecie, przekazywać ani wykorzystywać w innych sprawach.
         <br>3. Pismo do agresora wysyłamy <strong>my — przez naszego prawnika</strong>. Kopię dostajesz do wiadomości. Zakaz samodzielnego wysyłania i publikowania.
         <br>4. Naruszenie tych warunków = kara umowna <strong>50-krotność ceny usługi</strong> + odpowiedzialność z art. 23 u.z.n.k.
-        <br>5. RODO: przetwarzamy Twoje dane wyłącznie w celu prowadzenia sprawy. Nie sprzedajemy, nie udostępniamy poza kancelarią prawnika.
-        <br>6. Każdy dokument zawiera Twój numer klienta, imię, nazwisko i hash — proof of authenticity. Wyciek zostanie zidentyfikowany.
+        <br>5. RODO: przetwarzamy Twoje dane wyłącznie w celu prowadzenia sprawy.
+        <br>6. Każdy dokument zawiera Twój numer klienta, imię, nazwisko i hash — wyciek zostanie zidentyfikowany.
         <br><br>Pełny regulamin: <a href="/regulamin" style="color:#3a2500;">regulamin.html</a>
       </div>
 
@@ -257,12 +246,12 @@
       </div>
 
       <div class="price-box" style="margin-top:24px;">
-        <div class="amount">50 zł</div>
-        <div class="desc">Jednorazowa opłata za pełną analizę · BLIK · karta · Przelewy24</div>
+        <div class="amount">0 zł</div>
+        <div class="desc">Wersja BETA — analiza za darmo w okresie testowym</div>
       </div>
 
-      <button type="button" class="btn" style="width:100%; padding:16px; font-size:16px;" id="payBtn" onclick="processPayment()">
-        ZAPŁAĆ I URUCHOM MASZYNĘ →
+      <button type="button" class="btn" style="width:100%; padding:16px; font-size:16px;" id="submitBtn" onclick="runAnalysis()">
+        URUCHOM MASZYNĘ RESTYTUCJI →
       </button>
     </form>
 
@@ -273,10 +262,10 @@
       <div class="analysis-text" id="analysisText"></div>
       <div class="breakdown" id="breakdown"></div>
       <div class="actions">
-        <button class="btn" onclick="orderLetter()">Zamów pismo od prawnika → 490 zł</button>
+        <button class="btn" onclick="orderLetter()">Zamów pismo od prawnika (kontakt e-mail)</button>
         <button class="btn btn-secondary" onclick="downloadReport()">Pobierz analizę</button>
       </div>
-      <p style="font-size:12px; color:#666; margin-top:16px;">Model cenowy: pismo od prawnika — 490 zł (rynek 1500–3000 zł). Success fee — 10% odzyskanej kwoty przy ugodzie/wygranej. Warunki finalne w umowie po zamówieniu.</p>
+      <p style="font-size:12px; color:#666; margin-top:16px;">Po zamówieniu pisma skontaktujemy się z Tobą e-mailem w sprawie zapłaty i danych do pisma.</p>
     </div>
   </section>
 
@@ -290,28 +279,20 @@
   </section>
 
   <footer>
-    <p>© 2026 3oddechy.pl · <a href="/regulamin">Regulamin</a> · <a href="/polityka">Polityka prywatności</a> · <a href="mailto:kontakt@bezstrachu.pl">Kontakt</a></p>
+    <p>© 2026 3oddechy.pl · <a href="/regulamin">Regulamin</a> · <a href="mailto:kontakt@3oddechy.pl">Kontakt</a></p>
     <p style="margin-top:8px;">Nie jesteśmy kancelarią prawną. Analiza generowana przez system statystyczny. Pisma podpisuje współpracujący adwokat/radca prawny.</p>
   </footer>
 </div>
 
 <script>
-  // === Client state ===
-  const state = {
-    icdCodes: [],
-    files: [],
-    customerNumber: null,
-    paymentSessionId: null
-  };
+  const state = { icdCodes: [], files: [], customerNumber: null };
 
-  // Generate stable customer number (client-side, based on email + random)
   function generateCustomerNumber() {
     const now = Date.now().toString(36).toUpperCase();
     const rnd = Math.random().toString(36).substring(2, 6).toUpperCase();
     return `${now}-${rnd}`;
   }
 
-  // ICD-10 management
   function addICD() {
     const input = document.getElementById('icdInput');
     const val = input.value.trim().toUpperCase();
@@ -334,7 +315,6 @@
     if (e.key === 'Enter') { e.preventDefault(); addICD(); }
   });
 
-  // File upload
   const uploadZone = document.getElementById('uploadZone');
   const fileInput = document.getElementById('fileInput');
   const fileList = document.getElementById('fileList');
@@ -355,53 +335,6 @@
     ).join('');
   }
 
-  // === Payment flow ===
-  async function processPayment() {
-    if (!document.getElementById('acceptTerms').checked) {
-      alert('Zaakceptuj warunki ochrony, żeby uruchomić maszynę.');
-      return;
-    }
-    const name = document.getElementById('customerName').value.trim();
-    const email = document.getElementById('customerEmail').value.trim();
-    if (!name || !email) { alert('Podaj imię, nazwisko i e-mail.'); return; }
-
-    // Save form state to sessionStorage (survives Stripe redirect)
-    state.customerNumber = generateCustomerNumber();
-    const formSnapshot = collectFormData();
-    sessionStorage.setItem('bs_form', JSON.stringify(formSnapshot));
-    sessionStorage.setItem('bs_customer_number', state.customerNumber);
-    sessionStorage.setItem('bs_customer_name', name);
-    sessionStorage.setItem('bs_customer_email', email);
-
-    const btn = document.getElementById('payBtn');
-    btn.disabled = true;
-    btn.innerHTML = '<span class="loader"></span> Przekierowuję do płatności...';
-
-    try {
-      const res = await fetch('/api/create-payment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          customerName: name,
-          customerEmail: email,
-          product: 'analysis'
-        })
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert('Błąd inicjacji płatności: ' + (data.error || 'nieznany'));
-        btn.disabled = false;
-        btn.textContent = 'ZAPŁAĆ I URUCHOM MASZYNĘ →';
-      }
-    } catch (err) {
-      alert('Błąd: ' + err.message);
-      btn.disabled = false;
-      btn.textContent = 'ZAPŁAĆ I URUCHOM MASZYNĘ →';
-    }
-  }
-
   function collectFormData() {
     const form = document.getElementById('mainForm');
     const data = new FormData(form);
@@ -419,24 +352,29 @@
     };
   }
 
-  // === After payment: called by /sukces page which redirects back with session_id ===
-  // Detect if we're on success flow
-  const urlParams = new URLSearchParams(window.location.search);
-  const sessionId = urlParams.get('session_id');
-  if (sessionId && sessionStorage.getItem('bs_form')) {
-    runAnalysisAfterPayment(sessionId);
-  }
+  // === MAIN: run analysis directly (no payment in MVP) ===
+  async function runAnalysis() {
+    if (!document.getElementById('acceptTerms').checked) {
+      alert('Zaakceptuj warunki ochrony, żeby uruchomić maszynę.');
+      return;
+    }
+    const name = document.getElementById('customerName').value.trim();
+    const email = document.getElementById('customerEmail').value.trim();
+    if (!name || !email) { alert('Podaj imię, nazwisko i e-mail.'); return; }
 
-  async function runAnalysisAfterPayment(sessionId) {
-    const formData = JSON.parse(sessionStorage.getItem('bs_form'));
-    const customerNumber = sessionStorage.getItem('bs_customer_number');
-    const customerName = sessionStorage.getItem('bs_customer_name');
+    state.customerNumber = generateCustomerNumber();
+    const formData = collectFormData();
 
-    document.getElementById('form').scrollIntoView();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loader"></span> Analizuję sprawę... (to zajmie do 60 sekund)';
+
     const result = document.getElementById('result');
     result.classList.add('show');
-    document.getElementById('verdict').textContent = 'Analizuję sprawę...';
+    document.getElementById('verdict').textContent = 'Analizuję...';
     document.getElementById('analysisText').innerHTML = '<span class="loader"></span> Statystyczna Maszyna Restytucji analizuje Twoją sprawę. Chwila...';
+    document.getElementById('breakdown').innerHTML = '';
+    document.getElementById('docMeta').innerHTML = '';
 
     try {
       const res = await fetch('/api/analyze', {
@@ -444,17 +382,25 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           formData,
-          documentsText: '', // TODO: extract text from uploaded files server-side
-          customerName,
-          customerNumber,
-          paymentSessionId: sessionId
+          documentsText: '',
+          customerName: name,
+          customerNumber: state.customerNumber
         })
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       renderAnalysis(data, formData);
+      // Save for later
+      sessionStorage.setItem('bs_customer_email', email);
+      sessionStorage.setItem('bs_customer_name', name);
+      sessionStorage.setItem('bs_customer_number', state.customerNumber);
     } catch (err) {
-      document.getElementById('analysisText').innerHTML = 'Błąd analizy: ' + err.message + '. Skontaktuj się z nami: kontakt@bezstrachu.pl';
+      document.getElementById('analysisText').innerHTML = 'Błąd analizy: ' + err.message + '<br><br>Skontaktuj się z nami: kontakt@3oddechy.pl';
+      document.getElementById('verdict').textContent = 'Błąd';
+      document.getElementById('verdict').className = 'verdict no';
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'URUCHOM MASZYNĘ RESTYTUCJI →';
     }
   }
 
@@ -472,9 +418,8 @@
 
     document.getElementById('analysisText').textContent = data.analysis;
 
-    // Calculate breakdown for visible summary
-    const breakdown = calculateBreakdown(formData);
-    document.getElementById('breakdown').innerHTML = breakdown;
+    document.getElementById('breakdown').innerHTML = calculateBreakdown(formData);
+    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
   }
 
   function calculateBreakdown(formData) {
@@ -526,23 +471,19 @@
       html += `<div class="line"><span>Odsetki ustawowe (TSUE C-903/24)</span><span>${odsetki.toLocaleString('pl-PL', {maximumFractionDigits:0})} zł</span></div>`;
     }
     html += `<div class="line total"><span>ŁĄCZNE ROSZCZENIE</span><span>${total.toLocaleString('pl-PL', {maximumFractionDigits:0})} zł</span></div>`;
-    if (kwota_zadanie > 0) {
-      html += `<div style="margin-top:12px; padding:10px; background:#f0f8ff; border-radius:4px; font-size:13px;">Bank/firma żąda ${kwota_zadanie.toLocaleString('pl-PL')} zł. Twoje roszczenie odszkodowawcze: <strong>${(total/kwota_zadanie).toFixed(1)}×</strong> tej kwoty.</div>`;
+    if (kwota_zadanie > 0 && total > 0) {
+      html += `<div style="margin-top:12px; padding:10px; background:#f0f8ff; border-radius:4px; font-size:13px;">Bank/firma żąda ${kwota_zadanie.toLocaleString('pl-PL')} zł. Twoje roszczenie: <strong>${(total/kwota_zadanie).toFixed(1)}×</strong> tej kwoty.</div>`;
     }
     return html;
   }
 
-  async function orderLetter() {
+  function orderLetter() {
     const email = sessionStorage.getItem('bs_customer_email');
     const name = sessionStorage.getItem('bs_customer_name');
-    if (!email) { alert('Brak danych klienta. Skontaktuj się z nami.'); return; }
-    const res = await fetch('/api/create-payment', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ customerName: name, customerEmail: email, product: 'letter' })
-    });
-    const data = await res.json();
-    if (data.url) window.location.href = data.url;
+    const num = sessionStorage.getItem('bs_customer_number');
+    const subject = encodeURIComponent(`Zamówienie pisma - klient ${num}`);
+    const body = encodeURIComponent(`Cześć,\n\nZamawiam pismo do agresora na podstawie analizy nr RR-${num}.\n\nImię i nazwisko: ${name}\nE-mail: ${email}\n\nProszę o kontakt w sprawie płatności i szczegółów.`);
+    window.location.href = `mailto:kontakt@3oddechy.pl?subject=${subject}&body=${body}`;
   }
 
   function downloadReport() {
@@ -552,7 +493,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `BezStrachu-Analiza-RR-${sessionStorage.getItem('bs_customer_number')}.txt`;
+    a.download = `3oddechy-Analiza-RR-${sessionStorage.getItem('bs_customer_number')}.txt`;
     a.click();
     URL.revokeObjectURL(url);
   }
